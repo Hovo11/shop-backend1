@@ -35,6 +35,8 @@ Route::prefix('/admin')->middleware(["auth","admin"])->group(function () {
     Route::prefix('/users')->group(function () {
         Route::post("/", [UsersController::class, 'getAll']);
         Route::post("/edit{id}", [UsersController::class, 'edit']);
+        Route::post("/save{id}", [UsersController::class, 'save']);
+        Route::post("/delete{id}", [UsersController::class, 'delete']);
     });
 });
 

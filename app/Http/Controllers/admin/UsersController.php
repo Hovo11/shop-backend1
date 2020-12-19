@@ -20,4 +20,18 @@ class UsersController extends Controller
         $user=User::find($id);
         return $user;
     }
+    public function save(Request $request,$id){
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->age=$request->age;
+        $user->surname=$request->surname;
+        $user->type=$request->type;
+        $user->save();
+        return $user;
+    }
+    public function delete($id){
+        User::where('id',$id)->delete();
+        return $id;
+    }
 }
