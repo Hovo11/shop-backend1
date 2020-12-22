@@ -15,7 +15,7 @@ class DataBaseSeeder extends Seeder
     {
         $this->call([
             UsersSeederTable::class,
-
+            AnnouncmentSeederTable::class
         ]);
     }
 }

@@ -47,6 +47,7 @@ class AuthController extends Controller
             'name' => 'required|max:20|string',
             'surname' => 'required|max:20|string',
             'age'=>'numeric|required',
+            'role'=>'required',
             'email' => 'required|email:rfc,dns|unique:users',
             'password' =>'required|min:8|string',
            // 'confirm_password' =>'required|same:password',
@@ -64,6 +65,7 @@ class AuthController extends Controller
                 'surname' => $request->surname,
                 'email' => $request->email,
                 'age' => $request->age,
+                'role' => $request->role,
                 'password' => Hash::make($request->password),
             ]);
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\UsersController as AnnouncmentController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +39,16 @@ Route::prefix('/admin')->middleware(["auth","admin"])->group(function () {
         Route::post("/save{id}", [UsersController::class, 'save']);
         Route::post("/delete{id}", [UsersController::class, 'delete']);
     });
+});
+
+Route::prefix('/announcment')->middleware('auth')->group(function () {
+    Route::post("/add", [AnnouncmentController::class, 'createAnnouncment']);
+    Route::post("/get", [AnnouncmentController::class, 'getAnnouncment']);
+    Route::post("/save", [AnnouncmentController::class, 'save']);
+    Route::post("/delete", [AnnouncmentController::class, 'delete']);
+    Route::post("/take", [AnnouncmentController::class, 'take']);
+    Route::post("/decline", [AnnouncmentController::class, 'decline']);
+    Route::post("/getToDo", [AnnouncmentController::class, 'getToDo']);
+
 });
 
