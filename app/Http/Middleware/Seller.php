@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Admin
+class Seller
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,8 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role=='admin'){
-        return $next($request);
+        if (Auth::user()->type=='seller'){
+            return $next($request);
         }
 
     }
